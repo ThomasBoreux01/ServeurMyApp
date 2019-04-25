@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
+import com.example.demo.entity.Produit;
 import com.example.demo.service.IProduitService;
-import entity.Produit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,8 +31,8 @@ public class ProduitController {
         produitService.updateProduit(produit);
     }
 
-    @DeleteMapping("/{ref}")
-    public void deleteProduit(@PathVariable String ref){
-        produitService.deleteProduit(ref);
+    @DeleteMapping("/{id}")
+    public void deleteProduit(@PathVariable Long id){
+        produitService.deleteProduit(id);
     }
 }

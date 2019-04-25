@@ -1,8 +1,18 @@
-package entity;
+package com.example.demo.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Objects;
 
+@Entity
 public class Produit {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String ref;
     private int quantite;
     private float prixUnitaire;
@@ -46,11 +56,19 @@ public class Produit {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Produit produit = (Produit) o;
-        return ref.equals(produit.ref);
+        return id.equals(produit.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(ref);
+        return Objects.hash(id);
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
