@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.entity.Produit;
-import com.example.demo.service.IProduitService;
+import com.example.demo.service.ICrudService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,25 +14,25 @@ import java.util.List;
 public class ProduitController {
 
     @Autowired
-    private IProduitService produitService;
+    private ICrudService<Produit,Long> produitService;
 
     @GetMapping
-    public List<Produit> getProduits(){
-        return produitService.getProduits();
+    public List<Produit> getAll(){
+        return produitService.getAll();
     }
 
     @PostMapping
-    public void addProduit(@RequestBody Produit produit){
-        produitService.addProduit(produit);
+    public void add(@RequestBody Produit produit){
+        produitService.add(produit);
     }
 
     @PutMapping
-    public void updateProduit(@RequestBody Produit produit){
-        produitService.updateProduit(produit);
+    public void update(@RequestBody Produit produit){
+        produitService.update(produit);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteProduit(@PathVariable Long id){
-        produitService.deleteProduit(id);
+    public void delete(@PathVariable Long id){
+        produitService.delete(id);
     }
 }

@@ -1,5 +1,7 @@
 package com.example.demo.entity;
 
+import com.example.demo.util.RoleEnum;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -17,9 +19,9 @@ public class Role {
         super();
     }
 
-    public Role(String name) {
+    public Role(RoleEnum roleEnum) {
         super();
-        this.name = name;
+        this.name = roleEnum.getName();
     }
 
     @Override

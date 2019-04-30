@@ -6,6 +6,7 @@ import com.example.demo.entity.User;
 import com.example.demo.repository.ProduitRepository;
 import com.example.demo.repository.RoleRepository;
 import com.example.demo.repository.UserRepository;
+import com.example.demo.util.RoleEnum;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -26,8 +27,8 @@ public class ServeurMyAppApplication {
         produitRepository.save(new Produit("Stylo",500,2.10f));
 
         RoleRepository roleRepository=ctx.getBean(RoleRepository.class);
-        Role roleUser=new Role("ROLE_USER");
-        Role roleAdmin=new Role("ROLE_ADMIN");
+        Role roleUser=new Role(RoleEnum.ROLE_USER);
+        Role roleAdmin=new Role(RoleEnum.ROLE_ADMIN );
 
         roleRepository.save(roleUser);
         roleRepository.save(roleAdmin);
